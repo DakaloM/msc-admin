@@ -1,0 +1,32 @@
+.role {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    .roleText {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        border-radius: 5px;
+        width: fit-content;
+        height: fit-content;
+        color: gray;
+        padding: 3px 7px;
+        
+        &.admin {
+            color: green;
+            background-color: rgba(0, 128, 0, 0.164);
+        }
+        &.staff {
+            color: gray;
+            background-color: #8080802d;
+        }
+        &.user {
+            color: orange;
+            background-color:rgba(255, 166, 0, 0.16);
+        }
+    }
+}

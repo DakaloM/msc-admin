@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.errorText {
+  font-size: 14px;
+  color: red;
+  font-weight: 500;
+  padding: 5px 0;
+}
+.errorText.small{
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.unavailable {
+  color: gray;
+  font-size: 14px;
+}
+.successText {
+  font-size: 14px;
+  color: green;
+  font-weight: 500;
+  padding: 5px 0;
+}
+
+html{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.overFlow {
+  overflow-x: hidden !important;
+}
+
+
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+h1 {
+  font-size: 25px;
+}
+h2 {
+  font-size: 20px;
+}
+
+.form {
+  background-color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

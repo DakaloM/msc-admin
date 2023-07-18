@@ -1,0 +1,97 @@
+.actions {
+    display: flex;
+    align-items: center !important;
+    gap: 10px;
+    width: fit-content;
+    margin: 0 auto;
+
+    .action {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: fit-content;
+        cursor: pointer;
+        padding: 0;
+        border-radius: 5px;
+
+        &.link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        &.view {
+            background-color: rgba(255, 166, 0, 0.108);
+            
+           
+        }
+        &.pin {
+            background-color: rgba(0, 128, 0, 0.271);
+            
+           
+        }
+        &.unpin {
+            background-color: rgba(255, 0, 170, 0.108);
+            
+           
+        }
+        &.demote {
+            background-color: rgba(255, 166, 0, 0.108);
+           
+        }
+        &.promote {
+            background-color: rgba(0, 128, 0, 0.097);
+            
+        }
+        &.edit {
+            background-color: rgba(128, 128, 128, 0.107);
+            
+        }
+        &.delete {
+            background-color: rgba(255, 0, 0, 0.108);
+           
+        }
+        
+
+        .icon {
+            font-size: 20px;
+            padding: 5px;
+            border-radius: 3px;
+            margin-bottom: 0;
+
+            &.pin {
+                color: rgb(0, 128, 0);
+                
+               
+            }
+            &.unpin {
+                color: rgba(255, 0, 170, 0.79);
+                transform: rotate(180deg);
+                
+               
+            }
+
+            &.view {
+               
+                color: orange;
+            }
+            &.demote {
+                
+                color: orange;
+            }
+            &.promote {
+                
+                color: green;
+            }
+            &.edit {
+                
+                color: gray;
+            }
+            &.delete {
+                
+                color: red;
+            }
+
+        }
+    }
+}

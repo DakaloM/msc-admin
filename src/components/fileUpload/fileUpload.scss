@@ -1,0 +1,18 @@
+.fileUpload {
+    display: flex;
+    align-items: center;
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: gray;
+        font-size: 14px;
+
+        .icon {
+            color: gray;
+            cursor: pointer;
+        }
+    }
+    
+}

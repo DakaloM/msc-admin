@@ -1,0 +1,34 @@
+.pageHeader {
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-self: flex-start;
+
+    .title {
+        margin-bottom: 5px;
+        font-size: 22px;
+        color: rgb(42, 42, 42);
+    }
+
+    .texts {
+        display: flex;
+        align-items: center;
+        color: gray;
+        gap: 7px;
+
+        .text {
+            font-size: 13px;
+        }
+
+        .icon {
+            font-size: 18px;
+        }
+
+        .desc {
+            color: orange;
+            font-size: 13px;
+        }
+    }
+}

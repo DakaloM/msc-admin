@@ -1,0 +1,106 @@
+.register {
+    background-color: #FFFAFA;
+    min-height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 30px;
+
+    .wrapper {
+        max-width: 800px;
+        display: flex;
+        height: fit-content;
+        flex-direction: column;
+        gap: 40px;
+        padding: 20px;
+        -webkit-box-shadow: 0px 0px 20px -11px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 20px -11px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 20px -11px rgba(0,0,0,0.75);
+        background-color: #fff;
+        border-radius: 5px;
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            @media all and (max-width: 600px) {
+                flex-direction: column;
+            }
+
+            .inputGroup {
+                width: 45%;
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+
+                @media all and (max-width: 600px) {
+                    width: 100%;
+                }
+
+                .error {
+                    font-size: 12px;
+                    color: red;
+                    margin-left: 10px;
+                    font-weight: 500;
+                }
+
+                label {
+                    font-size: 15px;
+                    color: rgb(95, 95, 95);
+                    font-weight: 400;
+                }
+
+                input {
+                    height: 40px;
+                    border: none;
+                    background-color: #f2f2f2;
+                    border-radius: 5px;
+                    padding: 0 10px;
+                    outline: none;
+                    color: rgb(85, 85, 85);
+                }
+            }
+
+
+            .group {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .error {
+                    color: red;
+                    margin-top: 10px;
+                    font-size: 14px;
+                }
+
+                .redirect {
+                    font-size: 13px;
+                    color: orange;
+    
+                    .link {
+                        text-decoration: none;
+                        margin-left: 5px;
+    
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+    
+                button {
+                    height: 35px;
+                    width: 70px;
+                    border: none;
+                    border-radius: 5px;
+                    color: white;
+                    background-color: orange;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

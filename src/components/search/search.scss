@@ -1,0 +1,28 @@
+.search {
+    width: fit-content;
+    align-self: flex-end;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 7px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: -15px;
+    background-color: #fff;
+
+    .icon {
+        color: gray;
+        font-size: 20px;
+    }
+
+    input {
+        border: none;
+        outline: none;
+        color: gray;
+        font-size: 16px;
+
+        &::placeholder {
+            color: rgb(185, 185, 185);
+        }
+    }
+}
