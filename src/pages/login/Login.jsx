@@ -19,8 +19,6 @@ const Login = () => {
   const url = useLocation().search
   const user = useSelector(state => state.user)
 
-  console.log(url)
-
   const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true)
@@ -84,7 +82,7 @@ const Login = () => {
                 {user.error && <span className="errorText">{user.errorMessage}</span>}
                 <button type='submit' onClick={handleLogin}>
                     {
-                      loading ? <Loading /> : "Login"
+                      user.isfetching ? <Loading color={"white"} size={20}/> : "Login"
                     }
                 </button>
             </form>

@@ -12,6 +12,7 @@ import { useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
 import { notify } from '../../utils/methods';
 import { ToastContainer } from 'react-toastify';
+import Loading from '../../components/loading/Loading';
 
 const Users = () => {
   const [file, setFile] = useState()
@@ -115,12 +116,18 @@ const Users = () => {
       <ToastContainer />
       <PageHeader title="Users" desc="Users" />
       <Search setSearch={setSearch}/>
+      {
+        loading ? <Loading />
+        : users && users.length > 0 ?
+        <div className="postList" >
+          <DataTable variant="user" color="red" data={users} setValue={setUser} promoteAction={promoteUser} demoteAction={demoteUser}
+            deleteAction={deleteUser}
+          />
+        </div>
+        :
 
-      <div className="postList" >
-        <DataTable variant="user" color="red" data={users} setValue={setUser} promoteAction={promoteUser} demoteAction={demoteUser}
-          deleteAction={deleteUser}
-        />
-      </div>
+        <span className="noDataText">No Users found!</span>
+      }
 
       
     </div>

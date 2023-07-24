@@ -31,6 +31,7 @@ const Register = () => {
   const handleRegister = async (e) => {
       e.preventDefault()
       setLoading(true)
+      error !== "" && setError("");
       try {
         const res = await publicRequest.post('auth/register', {...inputs, password})
         setLoading(false)
@@ -38,7 +39,7 @@ const Register = () => {
       } catch (error) {
         setLoading(false)
         console.log(error)
-        setError(error.response ? error.response.data.message ? error.response.data.message : "Something went wrong" : error.message)
+        setError(error.response ? error.response.data.message ? error.response.data.message : "Something went wrong" : "Network Error")
       }
   }
 
@@ -84,9 +85,9 @@ const Register = () => {
 
                 <div className="group">
                     <span className="redirect">Already have an account? Sign in<Link className='link' to="/login">here</Link></span>
-                    { error !== "" && <span className="error">Error!....{error}</span>}
+                    { error !== ""  && <span className="error">Error!....{error}</span>}
                     <button type='submit' onClick={handleRegister}>
-                      {loading ? <Loading /> : "Register"}
+                      {loading ? <Loading color={"white"} size={20} /> : "Register"}
                     </button>
                 </div>
 

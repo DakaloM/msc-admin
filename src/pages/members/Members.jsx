@@ -13,7 +13,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from '../../firebase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { notify } from '../../utils/methods';
+import { clearInputs, notify } from '../../utils/methods';
 
 const Members = () => {
   const [file, setFile] = useState()
@@ -114,14 +114,14 @@ const Members = () => {
               // Observe state change events such as progress, pause, and resume
               // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
               const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              console.log('Upload is ' + progress + '% done');
+              //('Upload is ' + progress + '% done');
               setUploadProgress(progress)
               switch (snapshot.state) {
               case 'paused':
-                  console.log('Upload is paused');
+                  //console.log('Upload is paused');
                   break;
               case 'running':
-                  console.log('Upload is running');
+                  //console.log('Upload is running');
                   break;
               }
           }, 
@@ -143,12 +143,7 @@ const Members = () => {
                     setEvent(prev => prev + 1)
                     setUploadLoading(false)
                     setFile()
-                    setInputs({
-                      firstname: "",
-                      lastname: "",
-                      role: "",
-                      about: "",
-                    });
+                    clearInputs();
                   } catch (error) {
                       setUploadLoading(false)
                       setComplete(true)
@@ -212,25 +207,25 @@ const Members = () => {
         <form action="">
           <div className="inputGroup">
             <label htmlFor="firstname">First name:</label>
-            <input type="text" id='firstname' required={true} name='firstname' value={inputs.firstname} onChange={handleInputs}/>
+            <input className='input' type="text" id='firstname' required={true} name='firstname'  onChange={handleInputs}/>
             {firstnameMissing && <span className="errorText small">This field required</span>}
           </div>
 
           <div className="inputGroup">
             <label htmlFor="lastname">Last name:</label>
-            <input type="text" id='lastname' required name='lastname' value={inputs.lastname} onChange={handleInputs}/>
+            <input className='input' type="text" id='lastname' required name='lastname'  onChange={handleInputs}/>
             {lastnameMissing && <span className="errorText small">This field required</span>}
           </div>
 
           <div className="inputGroup">
             <label htmlFor="role">Role:</label>
-            <input type="text" id='role' name='role'required value={inputs.role} onChange={handleInputs}/>
+            <input className='input' type="text" id='role' name='role'required  onChange={handleInputs}/>
             {roleMissing && <span className="errorText small">This field required</span>}
           </div>
 
           <div className="inputGroup">
             <label htmlFor="about">About:</label>
-            <textarea type="text" id='about' name='about'required value={inputs.about} onChange={handleInputs}/>
+            <textarea className='input' type="text" id='about' name='about'required  onChange={handleInputs}/>
             {aboutMissing && <span className="errorText small">This field required</span>}
           </div>
 

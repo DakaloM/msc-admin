@@ -15,8 +15,7 @@ import { useSelector } from 'react-redux';
 import Loading from '../../components/loading/Loading';
 import ViewPost from '../../components/viewPost/ViewPost';
 import 'react-toastify/dist/ReactToastify.css';
-import { notify } from '../../utils/methods';
-import { NavigationTimingPolyfillEntry } from 'web-vitals'; 
+import { notify, clearInputs } from '../../utils/methods';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Posts = () => {
@@ -91,14 +90,14 @@ const Posts = () => {
           // Observe state change events such as progress, pause, and resume
           // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
+          //console.log('Upload is ' + progress + '% done');
           setUploadProgress(progress)
           switch (snapshot.state) {
           case 'paused':
-              console.log('Upload is paused');
+              //console.log('Upload is paused');
               break;
           case 'running':
-              console.log('Upload is running');
+              //console.log('Upload is running');
               break;
           }
       }, 
@@ -119,9 +118,7 @@ const Posts = () => {
                 setCompleteMessage(res.data.message)
                 setEvent(prev => prev + 1)
                 setSubmitLoading(false)
-                setTitle("");
-                setStory("");
-                setCategory("")
+                clearInputs();
                 setFile()
               } catch (error) {
                   setSubmitLoading(false)
@@ -201,7 +198,7 @@ const deletePost = async (id) => {
 }
 
 const pinStory = async (id) => {
-  console.log(id)
+  
   try {
     const res = await userRequest.patch(`posts/${id}`, {pinned: true});
     setLoading(false)
@@ -277,7 +274,7 @@ const unPinStory = async (id) => {
         <form action="">
           <div className="inputGroup">
             <label htmlFor="title">Title:</label>
-            <input type="text" id='title' name='title' required placeholder='Title' onChange={(e) => setTitle(e.target.value)}/>
+            <input className='input' type="text" id='title' name='title' required placeholder='Title' onChange={(e) => setTitle(e.target.value)}/>
             {titleMissing && <span className="errorText small">this field is required</span>}
           </div>
           <div className="inputGroup">
@@ -287,7 +284,7 @@ const unPinStory = async (id) => {
           </div>
           <div className="inputGroup">
             <label htmlFor="story">Story:</label>
-            <textarea name="desc" id="story" cols="30" rows="10" required placeholder='Your Story' onChange={(e) => setStory(e.target.value)}></textarea>
+            <textarea className='input' name="desc" id="story" cols="30" rows="10" required placeholder='Your Story' onChange={(e) => setStory(e.target.value)}></textarea>
             {storyMissing && <span className="errorText small">this field is required</span>}
           </div>
           

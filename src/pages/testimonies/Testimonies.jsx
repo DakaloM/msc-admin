@@ -12,7 +12,7 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import app from '../../firebase';
 import { userRequest } from '../../requestMethod';
 import Notification from '../../components/notification/Notification';
-import { notify } from '../../utils/methods';
+import { clearInputs, notify } from '../../utils/methods';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -56,7 +56,6 @@ const Testimonies = () => {
       try {
         const res = await userRequest.get('testimonies')
         setTestimonies(res.data)
-        console.log(res.data)
         setLoading(false)
       } catch (error) {
         console.log(error)
@@ -104,14 +103,14 @@ const Testimonies = () => {
             // Observe state change events such as progress, pause, and resume
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
             const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log('Upload is ' + progress + '% done');
+            //console.log('Upload is ' + progress + '% done');
             setUploadProgress(progress)
             switch (snapshot.state) {
             case 'paused':
-                console.log('Upload is paused');
+                //console.log('Upload is paused');
                 break;
             case 'running':
-                console.log('Upload is running');
+                //console.log('Upload is running');
                 break;
             }
         }, 
@@ -133,8 +132,7 @@ const Testimonies = () => {
                   setCompleteMessage(res.data.message)
                   setEvent(prev => prev + 1)
                   setSubmitLoading(false)
-                  setName("");
-                  setMessage("");
+                  clearInputs();
                   setFile()
                 } catch (error) {
                     setSubmitLoading(false)
@@ -200,15 +198,15 @@ const Testimonies = () => {
         <form action="">
           <div className="inputs">
             <div className="inputGroup">
-              <input type="text" required placeholder='Name...' onChange={(e) => setName(e.target.value)} value={name}/>
+              <input className='input' type="text" required placeholder='Name...' onChange={(e) => setName(e.target.value)} />
               {inputsMissing && <span className="errorText small">This field is required</span>}
             </div>
             <div className="inputGroup">
-              <textarea type="text" required placeholder='Message...' onChange={(e) => setMessage(e.target.value)} value={message}/> 
+              <textarea className='input' type="text" required placeholder='Message...' onChange={(e) => setMessage(e.target.value)} /> 
               {inputsMissing && <span className="errorText small">This field is required</span>} 
             </div>
             <div className="inputGroup">
-              <input type="text" required placeholder='Company, or what they represent' onChange={(e) => setExtra(e.target.value)} value={extra}/>
+              <input className='input' type="text" required placeholder='Company, or what they represent' onChange={(e) => setExtra(e.target.value)} />
               {inputsMissing && <span className="errorText small">This field is required</span>}
             </div>
             

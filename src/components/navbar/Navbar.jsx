@@ -49,7 +49,7 @@ const Navbar = () => {
       }
 
       <div className="message">
-        <span>Hi {user.firstname + " " + user.lastname}, this is your admin area</span>
+        <span>Hi <span className='name'>{user.firstname + " " + user.lastname}</span>, this is your admin area</span>
       </div>
     </div>
   )

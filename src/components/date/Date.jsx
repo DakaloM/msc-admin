@@ -2,7 +2,7 @@ import React from 'react';
 import "./date.scss";
 import {format } from "date-fns"
 import { DateRangeTwoTone } from '@mui/icons-material';
-import { formatDate } from '../../util/methods';
+import { formatDate } from '../../utils/methods';
 
 
 

@@ -39,9 +39,7 @@ const Home = () => {
     const width = ref.current.offsetWidth;
     setMainWidth(width);
 }, [screenSize, activeMenu])
-console.log("NoticeOpen: ", noticeOpen)
-console.log(url.search? url.search.includes("user") && noticeOpen? "notice active": "notice"  : "notice")
-console.log(url.search? url.search.includes("user") && noticeOpen? "notice is open" : "notice clodes" : "no search")
+
 
   useEffect(() => {
       const fetchPosts = async() => {

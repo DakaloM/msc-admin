@@ -94,6 +94,9 @@
                 button {
                     height: 35px;
                     width: 70px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     border: none;
                     border-radius: 5px;
                     color: white;
